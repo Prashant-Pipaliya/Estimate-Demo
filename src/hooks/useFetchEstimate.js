@@ -4,6 +4,7 @@ const useFetchEstimate = () => {
   const query = useQuery({
     queryKey: ["estimateData"],
     queryFn: fetchEstimateData,
+    refetchOnWindowFocus: false
   });
 
   return query;
