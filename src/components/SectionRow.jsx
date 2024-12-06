@@ -66,7 +66,10 @@ const SectionRow = ({ section, onSectionTotalUpdate }) => {
         </table>
       </div>
 
-      <ToastContainer position="bottom-start" className="p-3">
+      <ToastContainer
+        position="bottom-start"
+        className="p-3 toast-container"
+      >
         <Toast
           show={showToast}
           onClose={() => setShowToast(false)}
