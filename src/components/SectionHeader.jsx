@@ -2,6 +2,7 @@ import React from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const SectionHeader = ({ section, sectionTotal }) => {
+  
   // Tooltip for the section header
   const renderTooltipForTotal = (props) => (
     <Tooltip id="total-tooltip" {...props}>

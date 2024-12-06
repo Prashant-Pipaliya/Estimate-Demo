@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Tooltip, ToastContainer, Toast } from "react-bootstrap";
+import { ToastContainer, Toast } from "react-bootstrap";
 
 import ItemRow from "@components/ItemRow";
 import SectionHeader from "@components/SectionHeader";
@@ -45,9 +45,7 @@ const SectionRow = ({ section, onSectionTotalUpdate }) => {
               <th>Quantity</th>
               <th>Unit Cost ($)</th>
               <th>Unit</th>
-              <th>Cost Code</th>
               <th>Total ($)</th>
-              <th>Tax</th>
               <th>Mode</th>
             </tr>
           </thead>

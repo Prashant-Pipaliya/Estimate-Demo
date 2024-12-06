@@ -77,9 +77,7 @@ const ItemRow = ({ item, onItemTotalChange, setShowToast }) => {
           )}
         </td>
         <td>{item.unit}</td>
-        <td>{item.cost_code_name}</td>
         <td>${itemTotal.toFixed(2)}</td>
-        <td>{item.tax_percentage}%</td>
         <td className="text-center">
           <button onClick={toggleEdit}>
             {isEditing ? <FaCheck color="green" /> : <FaEdit color="gray" />}
