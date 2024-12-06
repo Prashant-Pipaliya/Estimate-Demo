@@ -1,20 +1,16 @@
 import React, { useState, useEffect, useCallback } from "react";
-import ItemRow from "./ItemRow";
-import { Tooltip, OverlayTrigger } from "react-bootstrap";
-import SectionHeader from "./SectionHeader";
+import { Tooltip, ToastContainer, Toast } from "react-bootstrap";
+
+import ItemRow from "@components/ItemRow";
+import SectionHeader from "@components/SectionHeader";
 
 const SectionRow = ({ section, onSectionTotalUpdate }) => {
   const [sectionTotal, setSectionTotal] = useState(0);
   const [itemTotals, setItemTotals] = useState({});
+  const [showToast, setShowToast] = useState(false);
 
-  const renderTooltip = (props) => (
-    <Tooltip id="header-tooltip" {...props}>
-      Total cost for this section: ${sectionTotal.toFixed(2)}
-    </Tooltip>
-  );
-
+  // Update item totals only if the value has changed to avoid unnecessary re-renders
   const handleItemTotalChange = useCallback((itemId, itemTotal) => {
-    // Update item totals only if the value has changed to avoid unnecessary re-renders
     setItemTotals((prevTotals) => {
       if (prevTotals[itemId] !== itemTotal) {
         return { ...prevTotals, [itemId]: itemTotal };
@@ -39,10 +35,7 @@ const SectionRow = ({ section, onSectionTotalUpdate }) => {
 
   return (
     <div className="mb-5">
-      <SectionHeader
-        section={section}
-        sectionTotal={sectionTotal}
-      />
+      <SectionHeader section={section} sectionTotal={sectionTotal} />
       <div className="overflow-x-auto">
         <table className="text-center">
           <thead className="custom-bg">
@@ -66,11 +59,24 @@ const SectionRow = ({ section, onSectionTotalUpdate }) => {
                 onItemTotalChange={(total) =>
                   handleItemTotalChange(item.item_id, total)
                 }
+                setShowToast={setShowToast}
               />
             ))}
           </tbody>
         </table>
       </div>
+
+      <ToastContainer position="bottom-start" className="p-3">
+        <Toast
+          show={showToast}
+          onClose={() => setShowToast(false)}
+          delay={3000}
+          autohide
+          className="bg-dark text-white h-50 d-flex justify-content-center align-items-center py-2"
+        >
+          <Toast.Body>Please enter a valid number.</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 };

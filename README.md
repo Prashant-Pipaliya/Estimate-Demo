@@ -15,8 +15,6 @@ This is a React project that simulates an estimate table with dynamic sections, 
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - **Editable Item Rows**: Users can edit the quantity and unit cost for items in each section.

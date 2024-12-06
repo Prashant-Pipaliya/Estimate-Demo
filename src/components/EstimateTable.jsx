@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from "react";
-import SectionRow from "./SectionRow";
+import SectionRow from "@components/SectionRow";
 
-const EstimateTable = ({ sections }) => {
-  const [grandTotal, setGrandTotal] = useState(0);
+const EstimateTable = ({ sections, searchTerm, onGrandTotalChange }) => {
   const [sectionTotals, setSectionTotals] = useState({});
 
   const handleSectionTotalUpdate = (sectionId, updatedTotal) => {
     setSectionTotals((prevTotals) => {
-      // Only update if the section total has changed
       if (prevTotals[sectionId] !== updatedTotal) {
         return { ...prevTotals, [sectionId]: updatedTotal };
       }
       return prevTotals;
     });
   };
+  
+  // filter sections according to search filed
+  const filteredSections = sections?.filter((section) =>
+    section?.section_name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
-    const total = Object.values(sectionTotals).reduce(
-      (sum, curr) => sum + curr,
-      0
-    );
-    setGrandTotal(total);
-  }, [sectionTotals]);
+    const total = filteredSections
+      .map((section) => sectionTotals[section.section_id] || 0)
+      .reduce((sum, curr) => sum + curr, 0);
+
+    onGrandTotalChange(total);
+  }, [filteredSections, sectionTotals, onGrandTotalChange]);
 
   return (
     <div>
-      <div className="d-flex flex-sm-row flex-column justify-content-between align-items-md-center my-3 px-2 sticky-header">
-        <h2 className="fs-4">Estimate</h2>
-        <h3 className="fs-4">Grand Total: ${grandTotal.toFixed(2)}</h3>
-      </div>
-      <hr />
-      {sections?.map?.((section) => (
+      {filteredSections?.map?.((section) => (
         <SectionRow
           key={section.section_id}
           section={section}

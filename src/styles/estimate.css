@@ -3,8 +3,8 @@
 }
 
 .header {
-    background-color: rgb(92, 91, 91);
-    color: white;
+  background-color: rgb(92, 91, 91);
+  color: white;
 }
 
 table {
@@ -17,11 +17,11 @@ tr:nth-child(even) {
 }
 
 .table-header {
-    font-size: 18px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 250px;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
 }
 
 th,
@@ -51,15 +51,3 @@ button {
 button:hover {
   color: #0056b3;
 }
-
-.sticky-header {
-  position: sticky;
-  margin: 18px 0;
-  top: 0;
-  z-index: 100;
-  background-color: rgb(68, 67, 67);
-  padding: 10px 0;
-  color: white;
-  border-bottom: 1px solid #ccc;
-}
-
