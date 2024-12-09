@@ -1,13 +1,6 @@
 # Estimate Table Project
 
 This is a React project that simulates an estimate table with dynamic sections, allowing users to edit item quantities and costs. It supports infinite scroll and calculates the grand total for all sections. The grand total is fixed and represents the sum of all sections, regardless of how many sections are displayed at any given time.
-
-## Tech Stack
-
-- **React with Vite**: A fast and modern build tool for React applications.
-- **React-Bootstrap**: Bootstrap components for React for UI styling.
-- **Axios**: For making API requests.
-- **TanStack Query** : For data fetching, caching, and synchronization.
   
 ## Table of Contents
 - [Features](#features)
@@ -47,6 +40,13 @@ Estimate-Table/
 ├── .gitignore                       # Git ignore configuration
 └── README.md                        # Project documentation
 ```
+
+## Tech Stack
+
+- **React with Vite**: A fast and modern build tool for React applications.
+- **React-Bootstrap**: Bootstrap components for React for UI styling.
+- **Axios**: For making API requests.
+- **TanStack Query** : For data fetching, caching, and synchronization.
 
 ## Installation
 
